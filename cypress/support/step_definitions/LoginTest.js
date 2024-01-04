@@ -2,8 +2,7 @@
 import { Given, Then, When } from "@badeball/cypress-cucumber-preprocessor";
 
 
-import HomePage from "C:Users/obenammar/Desktop/CypressTuto-Azmi/cypress/pages/HomePage.js";
-
+import HomePage from "C:/Users/obenammar/Desktop/CypressTuto-Azmi/cypress/pages/HomePage.js";
 import Login from "C:/Users/obenammar/Desktop/CypressTuto-Azmi/cypress/pages/Login.js";
 
 const home = new HomePage()

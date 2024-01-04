@@ -49,7 +49,7 @@ cy.reload() //reload HomePage
 
      log.LoginButton().click()
      cy.wait(2000)
-     home.ClickMyAccount().click()<
+     home.ClickMyAccount().click()
      log.ClickLogout().click()
 
        cy.log("First Test")
