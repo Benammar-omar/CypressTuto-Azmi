@@ -1,6 +1,6 @@
 
-import HomePage from "C:/Users/obenammar/Desktop/CypressTuto-Azmi/cypress/pages/HomePage.js";
-import Login from "C:/Users/obenammar/Desktop/CypressTuto-Azmi/cypress/pages/Login.js";
+import HomePage from "cypress/pages/HomePage.js";
+import Login from "cypress/pages/Login.js";
 
 
 const home = new HomePage()
