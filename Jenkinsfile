@@ -22,20 +22,20 @@ pipeline {
         }
 
         stage('Publish Reports') {
-    steps {
-        // Vérifier si le répertoire existe avant de le créer
-        script {
-            def dirExists = fileExists('cypress-reports')
-            if (!dirExists) {
-                bat 'mkdir cypress-reports'
-            }
-        }
+            steps {
+                // Vérifier si le répertoire existe avant de le créer
+                script {
+                    def dirExists = fileExists('cypress-reports')
+                    if (!dirExists) {
+                        bat 'mkdir cypress-reports'
+                    }
+                }
 
-        // Copier les rapports Cypress dans un répertoire différent
-        bat 'xcopy /E /I /Y C:\\Users\\obenammar\\Desktop\\CypressTuto-Azmi\\mochawesome-report .\\cypress-reports\\mochawesome-report'
+                // Copier les rapports Cypress dans un répertoire différent
+                bat 'xcopy /E /I /Y C:\\Users\\obenammar\\Desktop\\CypressTuto-Azmi\\mochawesome-report .\\cypress-reports\\mochawesome-report'
 
-        // Publier les rapports en tant que rapport Jenkins
-        publishHTML(target: [
+                // Publier les rapports en tant que rapport Jenkins
+                publishHTML(target: [
             allowMissing: false,
             alwaysLinkToLastBuild: false,
             keepAll: true,
@@ -43,5 +43,7 @@ pipeline {
             reportFiles: 'mochawesome.html', // Nom du fichier de rapport
             reportName: 'Cypress Test Report'
         ])
+            }
+        }
     }
 }
