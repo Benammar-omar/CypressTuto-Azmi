@@ -1,67 +1,65 @@
 
-import HomePage from "cypress/pages/HomePage.js";
-import Login from "cypress/pages/Login.js";
-
+import HomePage from "../../pages/HomePage";
+import Login from "../../pages/Login";
 
 const home = new HomePage()
 const log = new Login()
 
-describe('Cypress Hooks', function() {
-    before(function() {
-       // executes once prior all tests in it block
-       cy.log("Before hook")
-   
-
-cy.reload() //reload HomePage
-        })
-
-    beforeEach(function() {
-        home.visit()
-
-        // executes prior each test within it block
-        log.EmailField('standard_user')
-       log.PasswordField('secret_sauce') 
-    
-        cy.wait(1000)
-
-        cy.log("BeforeEach hook")
-     })
+describe('Cypress Hooks', function () {
+   before(function () {
+      // executes once prior all tests in it block
+      cy.log("Before hook")
 
 
-    after(function() {
-       // executes once post all tests in it block
+      cy.reload() //reload HomePage
+   })
 
-       log.LoginButton().should('be.visible')
-       cy.log("After hook")
-    })
-    
+   beforeEach(function () {
+      home.visit()
 
-    afterEach(function() {
-       // executes post each test within it block
-      
-       cy.log("AfterEac hook")
+      // executes prior each test within it block
+      log.EmailField('standard_user')
+      log.PasswordField('secret_sauce')
 
-       cy.url().should('include', '/v1/index.html') //assert URL HomePage
-    })
+      cy.wait(1000)
 
-
-    it('First Test', function() {
-
-     log.LoginButton().click()
-     cy.wait(2000)
-     home.ClickMyAccount().click()
-     log.ClickLogout().click()
-
-       cy.log("First Test")
-    })
+      cy.log("BeforeEach hook")
+   })
 
 
-    it('Second Test', function() {
-       cy.log("Second Test")
-       cy.wait(2000)
-       log.LoginButton().click()
-       home.ClickMyAccount().click()
-       log.ClickLogout().click()
-    })
- })
+   after(function () {
+      // executes once post all tests in it block
 
+      log.LoginButton().should('be.visible')
+      cy.log("After hook")
+   })
+
+
+   afterEach(function () {
+      // executes post each test within it block
+
+      cy.log("AfterEac hook")
+
+      cy.url().should('include', '/v1/index.html') //assert URL HomePage
+   })
+
+
+   it('First Test', function () {
+
+      log.LoginButton().click()
+      cy.wait(2000)
+      home.ClickMyAccount().click()
+      log.ClickLogout().click()
+
+      cy.log("First Test")
+   })
+
+
+   it('Second Test', function () {
+      cy.log("Second Test")
+      cy.wait(2000)
+      log.LoginButton().click()
+      home.ClickMyAccount().click()
+      log.ClickLogout().click()
+   })
+})
