@@ -8,7 +8,8 @@
     "run": "cypress run",
     "cy:run:parallel": "cypress run --record --key 9622ad43-f945-4159-9217-306e989ce0af --parallel",
     "run:browsers": "npx cypress run --record --key 357c1db3-e1c1-4683-8d8a-240281987489 --browser electron & npx cypress run --record --key 357c1db3-e1c1-4683-8d8a-240281987489 --browser edge & npx cypress run --record --key 357c1db3-e1c1-4683-8d8a-240281987489 --browser firefox",
-    "test:firefox": "npx cypress run --browser firefox"
+    "test:firefox": "npx cypress run --browser firefox",
+    "test:with-report-dir": "if not exist cypress\\reports\\mochawesome-report mkdir cypress\\reports\\mochawesome-report && npx cypress run --reporter mochawesome"
   },
   "author": "",
   "license": "ISC",
@@ -18,11 +19,23 @@
     "cypress": "^13.6.2",
     "cypress-file-upload": "^5.0.8",
     "esbuild": "^0.19.9",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0",
+    "shelljs": "^0.8.5",
     "start-server-and-test": "^2.0.3"
   },
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^19.2.0",
     "cypress-parallel": "^0.14.0"
   },
-  "cypress-cucumber-preprocessor": {}
+  "cypress-cucumber-preprocessor": {},
+  "cypress": {
+    "reporter": "mochawesome",
+    "reporterOptions": {
+      "reportDir": "cypress/reports/mochawesome-report",
+      "overwrite": false,
+      "html": true,
+      "json": true
+    }
+  }
 }
