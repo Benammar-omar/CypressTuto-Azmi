@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                 git branch: 'main', url: 'https://github.com/Azmouch/CypressCucumberPMO.git'
+                 git branch: 'main', url: 'https://github.com/Benammar-omar/CypressTuto-Azmi.git'
             }
         }
  
@@ -17,7 +17,7 @@ pipeline {
  
         stage('Run Tests') {
             steps {
-                bat 'npx cypress run'
+                bat 'npm run open'
             }
         }
         stage('Publish Reports') {
