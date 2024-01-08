@@ -40,7 +40,7 @@ pipeline {
             alwaysLinkToLastBuild: false,
             keepAll: true,
             reportDir: 'cypress-reports/mochawesome-report', // Chemin vers le rapport
-            reportFiles: 'mochawesome.html', // Nom du fichier de rapport
+            reportFiles: 'mochawesome.html', 
             reportName: 'Cypress Test Report'
         ])
             }
